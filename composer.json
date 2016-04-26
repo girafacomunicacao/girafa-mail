@@ -1,0 +1,33 @@
+{
+    "name": "girafa/mail",
+	"type": "library",
+    "description": "Integration of Amazon SES service in the Zend Frameword Zend\\Mail",
+    "license": "MIT",
+    "keywords": [
+        "zf2",
+        "email",
+        "aws",
+        "aws ses"
+    ],
+    "authors": [
+        {
+            "name": "Girafa Comunicacao",
+			"email": "silver@girafacomunicacao.com.br",
+			"role": "Developer",
+			"homepage": "http://girafacomunicacao.com.br"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "zendframework/zend-mail": "~2.0",
+        "aws/aws-sdk-php-zf2": ">=1.0.1"
+    },
+    "autoload": {
+        "psr-0": {
+            "Girafa\\Mail": "src/"
+        },
+        "classmap": [
+            "./Module.php"
+        ]
+    }
+}
