@@ -7,7 +7,8 @@
         "zf2",
         "email",
         "aws",
-        "aws ses"
+        "aws ses",
+        "mailgun"
     ],
     "authors": [
         {
@@ -18,11 +19,18 @@
         }
     ],
     "require": {
-        "php": ">=5.3.3",
-        "zendframework/zend-mail": "~2.0",
-        "aws/aws-sdk-php-zf2": ">=1.0.1"
+        "php": ">=5.4",
+        "zendframework/zend-mail": "~2.0"
     },
-    "autoload": {
+    "require-dev": {
+        "zendframework/zendframework": "~2.0",
+        "aws/aws-sdk-php-zf2": ">=1.0.1"       
+    },
+    "suggest": {
+        "slm/mail": "If you need to use Mailgun",
+        "aws/aws-sdk-php-zf2": "If you need to use Amazon SES"
+    },
+    "autoload": { 
         "psr-0": {
             "Girafa\\Mail": "src/"
         },
