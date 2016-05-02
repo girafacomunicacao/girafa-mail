@@ -23,7 +23,7 @@ class Mailgun extends Message
     /**
      * @var array
      */
-    protected $customVars = array();
+    protected $customVariables = array();
 
     /**
      * @var array
@@ -227,34 +227,34 @@ class Mailgun extends Message
      *
      * @return array
      */
-    public function getCustomVars()
+    public function getCustomVariables()
     {
-        return $this->customVars;
+        return $this->customVariables;
     }
 
     /**
      * Set all custom vars for this message
      *
-     * @param  array $customVars
+     * @param  array $customVariables
      * @throws Exception\InvalidArgumentException
      * @return self
      */
-    public function setCustomVars(array $customVars)
+    public function setCustomVariables(array $customVariables)
     {
-        $this->customVars = $customVars;
+        $this->customVariables = $customVariables;
         return $this;
     }
 
     /**
      * Add a custom var to this message
      *
-     * @param string $customVar
+     * @param string $customVariable
      * @throws Exception\InvalidArgumentException
      * @return self
      */
-    public function addCustomVar($name, $value)
+    public function addCustomVariable($name, $value)
     {
-        $this->customVars[(string) $name] = $value;
+        $this->customVariables[(string) $name] = $value;
         return $this;
     }
 
@@ -265,7 +265,7 @@ class Mailgun extends Message
 	 * @return Girafa\Mail\Message
 	 */
 	public function setSkipVerificationHeader($value) {
-		return $this->addCustomHeader('Skip-Verification', $value ? 'True' : 'False');
+		return $this->addCustomHeaderSmtp('Skip-Verification', $value ? 'True' : 'False');
 	}
 
 	/**
@@ -275,7 +275,7 @@ class Mailgun extends Message
 	 * @return Girafa\Mail\Message
 	 */
 	public function addTagHeader($tag) {
-		return $this->addCustomHeader('Tag', $tag);
+		return $this->addCustomHeaderSmtp('Tag', $tag);
 	}
 
 	/**
@@ -284,9 +284,9 @@ class Mailgun extends Message
 	 * @param array $vars Variables
 	 * @return Girafa\Mail\Message
 	 */
-	public function setCustomVarsHeader($vars) {
+	public function setCustomVariablesHeader($vars) {
 		$vars = (array) $vars;
-		return $this->addCustomHeader('Variables', json_encode($vars));
+		return $this->addCustomHeaderSmtp('Variables', json_encode($vars));
 	}
 
 	/**
@@ -297,7 +297,7 @@ class Mailgun extends Message
 	 * @param string $value Value of the Header
 	 * @return Girafa\Mail\Message
 	 */ 
-	public function addCustomHeader($name, $value) {
+	public function addCustomHeaderSmtp($name, $value) {
 		$this->headers->addHeader(new GenericHeader('X-Mailgun-' . $name, $value));
 		return $this;
 	}
