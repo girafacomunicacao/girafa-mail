@@ -258,14 +258,24 @@ class Mailgun extends Message
         return $this;
     }
 
+    /**
+     * Add a Mailgun Skip Verification header to SMTP Request
+     * 
+     * @param bool $value TRUE to 'True' or FALSE to 'False'
+     * @return Girafa\Mail\Message
+     */
+    public function setSkipVerificationHeader($value) {
+        return $this->addCustomHeaderSmtp('Skip-Verification', $value ? 'True' : 'False');
+    }
+
 	/**
-	 * Add a Mailgun Skip Verification header to SMTP Request
+	 * Add a Mailgun Drop Message header to SMTP Request
 	 * 
 	 * @param bool $value TRUE to 'True' or FALSE to 'False'
 	 * @return Girafa\Mail\Message
 	 */
-	public function setSkipVerificationHeader($value) {
-		return $this->addCustomHeaderSmtp('Skip-Verification', $value ? 'True' : 'False');
+	public function setDropMessageHeader($value) {
+		return $this->addCustomHeaderSmtp('Drop-Message', $value ? 'yes' : 'no');
 	}
 
 	/**
