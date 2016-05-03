@@ -47,7 +47,7 @@ return array(
              * Your SMTP credentials
              */
             'smtp' => array(
-                'host'     => 'smtp.mailgun.org'
+                'host'     => 'smtp.mailgun.org',
                 'port'     => 587,
             //    'username' => '',
             //    'password' => '',
