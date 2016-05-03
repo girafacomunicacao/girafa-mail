@@ -36,18 +36,29 @@ return array(
             /**
              * Skip TLS Verification
              */
-            //'skip-verification' => true,
+            //'skip_verification' => true,
+
+            /**
+             * Enable/Disable Test Mode
+             */
+            //'test_mode' => true,
 
             /**
              * Your SMTP credentials
              */
-            //'smtp' => array(
-            //    'port'     => 587,
+            'smtp' => array(
+                'host'     => 'smtp.mailgun.org'
+                'port'     => 587,
             //    'username' => '',
             //    'password' => '',
-            //)
+            )
         ),
 
         'http_adapter' => 'Zend\Http\Client\Adapter\Socket',
+        // example of Socket adapter options
+        //'http_options' => array(
+        //    'sslverifypeer' => false,
+        //    'persistent' => true,
+        //),
     )
 );
