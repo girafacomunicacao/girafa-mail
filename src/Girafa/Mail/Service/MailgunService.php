@@ -106,7 +106,9 @@ class MailgunService extends AbstractMailService
 
             $customVariables = $message->getCustomVariables();
             if (count($customVariables)) {
-                $parameters['v:my-custom-data'] = json_encode($customVariables);
+                foreach ($customVariables as $name => $value) {
+                    $parameters['v:' . $name] = $value;
+                }
             }
 
             $customHeaders = $message->getCustomHeaders();
