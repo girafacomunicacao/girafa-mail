@@ -70,7 +70,7 @@ class SesTransport implements TransportInterface
 
         $to = array();
         foreach ($message->getTo() as $address) {
-            $to[] = $address->toString();
+            $to[] = $address->getEmail();
         }
 
         $parameters['Destination']['ToAddresses'] = $to;
@@ -79,7 +79,7 @@ class SesTransport implements TransportInterface
 
         $cc = array();
         foreach ($message->getCc() as $address) {
-            $cc[] = $address->toString();
+            $cc[] = $address->getEmail();
         }
 
         $parameters['Destination']['CcAddresses'] = $cc;
@@ -88,7 +88,7 @@ class SesTransport implements TransportInterface
 
         $bcc = array();
         foreach ($message->getBcc() as $address) {
-            $bcc[] = $address->toString();
+            $bcc[] = $address->getEmail();
         }
 
         $parameters['Destination']['BccAddresses'] = $bcc;
